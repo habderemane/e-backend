@@ -44,4 +44,8 @@ class User extends Authenticatable implements JWTSubject
     public function commandes() {
         return $this->hasMany(Order::class, 'user_id');
     }
+    public function getAuthPassword()
+    {
+        return $this->mot_de_passe;
+    }
 }

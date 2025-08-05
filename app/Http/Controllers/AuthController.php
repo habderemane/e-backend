@@ -75,10 +75,8 @@ class AuthController extends Controller
         try {
             $credentials = [
                 'email' => $request->email,
-                'motdepasse' =>  Hash::make($request->motdepasse),
-                'actif' => true
+                'password' =>  $request->motdepasse,
             ];
-
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'success' => false,
@@ -104,7 +102,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Erreur lors de la connexion'
+                'message' => 'Erreur lors de la connexion' . $e->getMessage()
             ], 500);
         }
     }
