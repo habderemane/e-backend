@@ -61,7 +61,8 @@
         ],
             "post-install-cmd": [
                 "@php artisan migrate --force",
-                "@php artisan config:cache"
+                "@php artisan config:cache",
+                "@php artisan db:seed --force"
             ]
 
     },
