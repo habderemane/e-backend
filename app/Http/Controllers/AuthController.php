@@ -75,7 +75,7 @@ class AuthController extends Controller
         try {
             $credentials = [
                 'email' => $request->email,
-                'password' =>  Hash::make($request->motdepasse),
+                'motdepasse' =>  Hash::make($request->motdepasse),
                 'actif' => true
             ];
 
